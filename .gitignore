@@ -1,5 +1,3 @@
-.ipynb_checkpoints
-Mv_tsla.ipynb
-multivariate_btc_LSTM*.ipynb
-lstm.py
+.ipynb_checkpoints/
 eda/
+pyfiles/
