@@ -1,20 +1,14 @@
-## Multivariate time-series forecasting with LSTM
+# deep-hodl
+Another attempt at making sense of madness (predicting cryptocurrency behavior) using bidirectional LSTM layers and convolutions (multi head self attention layer coming soon)
 
-After scraping all mentions of "bitcoin" on reddit within the past year, I synchronized the daily keyword frequency/sentiment values with the \$BTC-USD closing price from that day
+![forecast](/images/btc_forecast.png)
 
+Unlike the model found [here](https://github.com/Schlam/LSTM-time-series-forecasting) this predicts behavior using the historical data alone. The performance benefit of synchronizing sentiment with stock trends in the multivariate analysis is nominal and certainly outweighed by the potential for adversarial attack (after inspecting the reddit data used, I noticed some agent was spamming "I love bitcoin :)" in intervals for reasons unknown.) The signal to noise ratio isn't what I'd hoped, but in almost any other context this problem is not as prevelant and seems to be mainly a bitoin thing.
 
-![tsla](images/btc.png)
+![forecast](/images/btc_forecast2.png)
 
+### Plug and Play
+Unlike the previous rendition, this uses ```pandas_dataloader``` to grab historical data from Yahoo Finance, and is ready to be trained on any stock and certain cryptocurrencies
 
-A memory-based deep learning model was then trained on this data to make predictions about the stock's behavior.
-
-Shown below is the model's predicted $BTC-USD activity for December of 2019 through February 2020
-
-![btc](images/btc_prediction.png)  
-
-
-Here is the models performance when given a larger sequence to predict (04/2019 through 02/2020)
-
-![btc](images/btc_prediction2.png) 
-
-Perhaps the larger scale is decieving, but visually it appears to capture the general trend quite well
+### Coming soon
+The rise of Transformers and attention-based models in general has led text classification and language understanding to new heights, and researchers at Google have demonstrated their effectiveness in time series forecasting (link to the arxiv pdf [here](https://arxiv.org/pdf/2001.08317.pdf)).
